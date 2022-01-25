@@ -10,7 +10,7 @@ $(".container").on("click", ".description", function(){
     .trim();
 
     var textInput = $("<textarea>")
-        .addClass("textarea")
+        .addClass("col-10 textarea")
         .val(text);
 
     $(this).replaceWith(textInput);
@@ -36,3 +36,4 @@ $(".container").on("blur", "textarea", function(){
 
     $(this).replaceWith(descriptionBlock);
 });
+
