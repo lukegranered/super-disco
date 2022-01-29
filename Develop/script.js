@@ -37,3 +37,23 @@ $(".container").on("blur", "textarea", function(){
     $(this).replaceWith(descriptionBlock);
 });
 
+var checkTime = function () {
+    var hour = $(".time-block").text().trim();
+
+    var time = moment(hour, "LT");
+    console.log(time)
+
+    //remove any old classes from element
+    $(".time-block").removeClass(".present .past .future");
+
+    // apply new class if task is near/over due date
+    if (moment().isAfter(time)) {
+        $(".description").addClass(".past");
+    } else if (moment().isBefore(time)) {
+        $(".description").addClass(".future");
+    } else {
+        $(".description").addClass(".present");
+    }
+}
+
+checkTime();
